@@ -1,0 +1,36 @@
+package com.patricals.selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PhpTravelsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Isuru Dilshan\\Desktop\\SelenumTest\\Chromedriver\\chromedriver98.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.phptravels.com");
+		
+		// Select Demo Button
+		
+		WebElement UserDemo = driver.findElement(By.xpath("/html/body/header/div/nav/a[1]"));
+		UserDemo.click();
+		
+		Thread.sleep(3000);
+		
+		WebElement UserLogin = driver.findElement(By.xpath("//*[@id=\"Main\"]/section[1]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/a/small"));
+		UserLogin.click();
+		
+		Thread.sleep(3000);
+		
+		// Change the tab focus to new tab
+		
+		driver.getWindowHandles().forEach(tab -> driver.switchTo().window(tab));
+		
+		// 
+	}
+
+}
